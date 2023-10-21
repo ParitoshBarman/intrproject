@@ -1,0 +1,139 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Font Awesome CDN-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>IntrProject</title>
+    <style>
+        .heddnn{
+    display: none;
+    }
+    </style>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+
+            <div class="filterEntries">
+                <div class="entries">
+                    Show <select name="showAmount" id="table_size">
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select> entries
+                </div>
+
+                <div class="filter">
+                    <label for="search">Search:</label>
+                    <input type="search" name="" id="search" placeholder="Enter start date">
+                </div>
+            </div>
+
+            <div class="addMemberBtn">
+                <button onclick="hideHoga()">Add New</button>
+            </div>
+
+        </header>
+
+
+        <table>
+
+            <thead>
+                
+                <tr class="heading">
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Street</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Updated</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody class="userInfo">
+                <tr style="border: 2px solid white;" id="smdForm">
+                    <form action="/savedata/{{Authorization}}" method="post">
+                        {% csrf_token %}
+                        <td>
+                            <input type="text" name="first_name" id="sdate" required style="width: 90px;" placeholder="First Name">
+                        </td>  
+                        <td>
+                            <input type="text" name="last_name" id="edate" required style="width: 90px;" placeholder="Last Name">
+                        </td>    
+                        <td>
+                            <input type="text" name="street" id="monthyear" required style="width: 90px;" placeholder="street">
+                        </td>    
+                        <td>
+                            <input type="text" name="address" id="datexu" required style="width: 90px;" placeholder="address">
+                        </td>    
+                        <td>
+                            <input type="text" name="city" id="nofdays" required style="width: 90px;" placeholder="city">
+                        </td>    
+                        <td>
+                            <input type="text" name="state" id="leadcnt" required style="width: 90px;" placeholder="state">
+                        </td>    
+                        <td>
+                            <input type="email" name="email" id="expDRR" required style="width: 90px;" placeholder="email">
+                        </td>
+                        <td>
+                            <input type="number" name="phone" id="expDRR" required style="width: 90px;" placeholder="phone">
+                        </td>
+                        <td></td>
+                        <td>
+                            <button type="submit" style="padding: 10px;border: none;width: 70px;" class="hovr">Save</button>
+                        </td>
+                    </form>
+                </tr>
+                {% for DRRdbElement in DRRdb %}
+                <tr class="heading">
+                    <td>{{DRRdbElement.first_name}}</td>
+                    <td>{{DRRdbElement.last_name}}</td>
+                    <td>{{DRRdbElement.street}}</td>
+                    <td>{{DRRdbElement.address}}</td>
+                    <td>{{DRRdbElement.city}}</td>
+                    <td>{{DRRdbElement.state}}</td>
+                    <td>{{DRRdbElement.email}}</td>
+                    <td>{{DRRdbElement.phone}}</td>
+                    <td><a href="/updateForm/{{DRRdbElement.uuid}}/{{Authorization}}" class="deletBtn" style="color: yellow;">Update</a></td>
+                    <td><a href="/deletdata/{{DRRdbElement.uuid}}/{{Authorization}}" class="deletBtn">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+        <footer>
+            <span class="showEntries">Showing {{fromEntry}} to {{toEntry}} of {{totalEntries}} entries</span>
+            <div class="pagination">
+                <button onclick="prevPage()">Prev</button>
+                <button onclick="nextPage()">Next</button>
+            </div>
+        </footer>
+    </div>
+
+
+    <script>
+        function hideHoga(){
+            let newMemberButton = document.getElementById("smdForm");
+            newMemberButton.classList.toggle("heddnn");
+        }
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Operations</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <style>
+        body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+header {
+    background-color:white;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 200px;
+    height: auto;
+    margin-right: 10px;
+}
+
+h1 {
+    margin: 0;
+}
+
+.crud-container {
+    margin: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.crud-actions {
+    background-color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.crud-actions button {
+    background-color: white;
+    color: black;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.crud-actions button:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.crud-content {
+    padding: 20px;
+}
+
+/* Add more specific styles for your CRUD content if needed */
+
+    </style>
+
+  
+<header>
+    <div id="header">
+      <div class="header-logo">
+        <a href="index.html"><img src="https://lirp.cdn-website.com/5cb12704/dms3rep/multi/opt/logo-9bb883f7-176w.png" alt="" /></a>
+      </div>
+      <div class="header-list">
+        <nav class="header-list-nav">
+          <ul>
+            <li><a class="active" href="home.html">Home</a></li>
+            <li><a href="home.html">Industries</a></li>
+            <li><a href="feature.html">Features</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact </a></li>
+            <li><a href="login.html" class="login-btn">Login </a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+    <div class="crud-container">
+        <div class="crud-actions">
+            <button class="create"><i class="fas fa-plus"></i> Create</button>
+            <button class="read"><i class="fas fa-eye"></i> Read</button>
+            <button class="update"><i class="fas fa-edit"></i> Update</button>
+            <button class="delete"><i class="fas fa-trash-alt"></i> Delete</button>
+        </div>
+
+        <div class="crud-content">
+            <!-- Content of CRUD operations goes here -->
+        </div>
+    </div>
+
+</body>
+</html>
